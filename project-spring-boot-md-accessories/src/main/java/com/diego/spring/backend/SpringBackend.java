@@ -5,12 +5,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.core.env.Environment;
 
 import com.mercadopago.MercadoPago;
 
 
 @SpringBootApplication
 public class SpringBackend extends SpringBootServletInitializer implements CommandLineRunner {
+	
+	@Autowired
+	Environment env;
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
@@ -23,7 +27,7 @@ public class SpringBackend extends SpringBootServletInitializer implements Comma
 
 	@Override
 	public void run(String... args) throws Exception {
-		MercadoPago.SDK.setAccessToken("APP_USR-4047535620856855-071412-9fedaeb127c19a881a8db81495ef03ff-179043659");
+		MercadoPago.SDK.setAccessToken(env.getProperty("token.value"));
 	}
 
 }
