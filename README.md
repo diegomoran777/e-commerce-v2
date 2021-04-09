@@ -6,6 +6,7 @@ e-commerce made with Angular 8, java 11 spring boot, JPA, mysql, HTML5, CSS3, bo
 
 
 Starting 🚀
+
 BackEnd:
 Spring boot, java 11, maven, set your database name, username, password and port when runs xampp mysql into application.properties file.
 Spring tool suite or visual code IDE you can started easly. 
@@ -23,6 +24,7 @@ This allow you runs the project on port 4200 on your browser, putting URL: local
  If you changed the port from backend, you have to put the same port on folder API_URL into the angular project.
 
 Pre requirements 📋
+
 IDE: visual code,spring tool suite, etc.
 Angular 8 +
 NodeJs
