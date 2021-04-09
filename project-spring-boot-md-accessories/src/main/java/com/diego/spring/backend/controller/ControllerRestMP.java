@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.core.env.Environment;
 
 import com.diego.spring.backend.model.ResponseIPN;
 import com.diego.spring.backend.model.UserProgram;
@@ -40,7 +41,10 @@ public class ControllerRestMP {
 	@Autowired
 	EmailService emailService;
 	
-	private final String SUBJECT = "Compra Marmol Fenix";
+	@Autowired
+	Environment env;
+	
+	private final String SUBJECT = "Compra En MDAccesorios";
 	
 	@PostMapping(value="/go-mp", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
@@ -56,19 +60,16 @@ public class ControllerRestMP {
 	@PostMapping("ipn-response")
 	public ResponseEntity<?> responseIPN(@RequestParam("topic") String topic, @RequestParam("id") String id) {
 		try {
-			
 			RestTemplate restTemplate = new RestTemplate();
 			ResponseIPN responseIpn = restTemplate.getForObject("https://api.mercadopago.com/v1/payments/"
 					.concat(id)
 					.concat("?access_token=")
-					.concat("APP_USR-4047535620856855-071412-9fedaeb127c19a881a8db81495ef03ff-179043659"), ResponseIPN.class);
+					.concat(env.getProperty("token.value")), ResponseIPN.class);
 			
 			if(serviceMP.isAproved(responseIpn.getStatus())) {
-				//ENVIAR MAIL...
 				String userEmail = responseIpn.getAdditional_info().getPayer().getLast_name();
 				emailService.sendEmail(userEmail, SUBJECT, serviceMP.contentEmail(responseIpn));
 				
-				//LLENAR COMRA CLIENTE, COMPRAS, BORRAR CAR LIST...
 				serviceMP.fillPurchase(responseIpn);
 				serviceMP.fillSale(responseIpn);
 				serviceMP.deleteCartList(responseIpn);
