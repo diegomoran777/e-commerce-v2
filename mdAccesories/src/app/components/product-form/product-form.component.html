@@ -1,0 +1,141 @@
+<app-nav></app-nav>
+
+<!--Begin row panel button-->
+<div *ngIf="showForm" class="row mt-3">
+    <div class="col-md-12 d-flex justify-content-start">
+        <button id="userAdd" 
+                type="button" 
+                class="btn btn-dark border border-secondary btn-sm mt-2"
+                (click)="photoAdd()">
+                {{ buttonText }}
+        </button>
+    </div>
+</div>
+<!--Ends row panel button-->
+
+
+<!--Begin row form-->
+<div class="row productFormPage">
+    <div class="col-md-12">
+        <div *ngIf="showSpinner" class="sk-circle">
+            <div class="sk-circle1 sk-child"></div>
+            <div class="sk-circle2 sk-child"></div>
+            <div class="sk-circle3 sk-child"></div>
+            <div class="sk-circle4 sk-child"></div>
+            <div class="sk-circle5 sk-child"></div>
+            <div class="sk-circle6 sk-child"></div>
+            <div class="sk-circle7 sk-child"></div>
+            <div class="sk-circle8 sk-child"></div>
+            <div class="sk-circle9 sk-child"></div>
+            <div class="sk-circle10 sk-child"></div>
+            <div class="sk-circle11 sk-child"></div>
+            <div class="sk-circle12 sk-child"></div>
+          </div>
+        <!--Begin container-->
+        <div *ngIf="showForm" class="wrapForm rounded">
+            <div class="titleContainer">
+                <span>Producto</span>
+            </div>
+            <!--Begin form for add and update product-->
+            <form #productForm = "ngForm" (ngSubmit)="updateAddProduct(productForm)">
+                <div class="form-group">
+                    <input [(ngModel)]="product.categoryId"
+                           class="form-control" 
+                           type="text" 
+                           name="categoryId" 
+                           disabled>
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="product.id"
+                           *ngIf ="!isEmptyId()"
+                           class="form-control" 
+                           type="text" 
+                           name="productId" 
+                           disabled>
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="product.categoryName"
+                           class="form-control" 
+                           type="text" 
+                           name="categoryName" 
+                           disabled>
+                </div>
+                <div [hidden]="showPhotoInputs" class="form-group">
+                    <input [(ngModel)]="product.price"
+                           [class.is-invalid]="price.invalid && price.touched"
+                           required
+                           #price="ngModel"
+                           [(ngModel)]="product.price"
+                           class="form-control" 
+                           type="number" 
+                           name="price" 
+                           placeholder="Precio">
+                    <small class="text-warning"
+                           *ngIf="price.invalid && price.touched">
+                           Precio requerido
+                    </small>
+                </div>
+                <div [hidden]="showPhotoInputs" class="form-group">
+                    <input [(ngModel)]="product.numberExtern"
+                           class="form-control" 
+                           type="text" 
+                           name="numberExtern" 
+                           placeholder="Numero externo">
+                </div>
+                <div [hidden]="showPhotoInputs" class="form-group">
+                    <input [(ngModel)]="product.name"
+                           [class.is-invalid]="name.invalid && name.touched"
+                           required
+                           #name="ngModel"
+                           class="form-control" 
+                           type="text" 
+                           name="productName" 
+                           placeholder="Nombre de producto">
+                    <small class="text-warning"
+                            *ngIf="name.invalid && name.touched">
+                            Nombre requerido
+                    </small>
+                </div>
+                <div [hidden]="showPhotoInputs" class="form-group">
+                    <input [(ngModel)]="product.type"
+                           [class.is-invalid]="type.invalid && type.touched"
+                           required
+                           #type="ngModel"
+                           [(ngModel)]="product.type"
+                           class="form-control" 
+                           type="text" 
+                           name="productType" 
+                           placeholder="Tipo de producto">
+                    <small class="text-warning"
+                           *ngIf="type.invalid && type.touched">
+                           Tipo requerido
+                    </small>
+                </div>
+                <div [hidden]="showPhotoInputs" class="form-group">
+                    <input [(ngModel)]="product.description"
+                           class="form-control" 
+                           type="text" 
+                           name="description" 
+                           placeholder="Descripcion">
+                </div>
+                <div [hidden]="!showPhotoInputs" class="form-group" *ngFor="let photo of product.photos; index as i">
+                    <input [(ngModel)]="photo.name"
+                           class="form-control" 
+                           type="text" 
+                           [name]="'photo' + i"  
+                           [placeholder]="'Foto' + i">
+                </div>
+                <button [hidden]="showPhotoInputs" class="btn buttonSubmit" type="submit">Enviar</button>
+            </form>
+            <!--Ends form-->
+        </div>
+        <!--Ends container-->
+    </div>
+</div>
+<!--Ends row form-->
+
+<app-show-sales></app-show-sales>
+<app-show-purchases></app-show-purchases>
+<app-show-cart-amount></app-show-cart-amount>
+
+<app-footer></app-footer>

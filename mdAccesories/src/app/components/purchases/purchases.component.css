@@ -1,0 +1,46 @@
+label {
+	color: #c1c1c1;
+	margin-bottom: auto;
+}
+
+.bg-dark {
+	box-shadow: 0 1px 9px 5px rgba(0,0,0,0.3);
+} 
+
+#rwd-table th {
+	text-align: center;
+}
+
+#rwd-table tr {
+	text-align: center;
+}
+
+#table {
+	height: 80vh; 
+	background-color: #576067;
+	box-shadow: 9px 3px 9px 2px #474e54; 
+	overflow-y: auto;
+	margin-left: 3%;
+}
+
+.title {
+	font-weight: bold;
+	font-size: 187%;
+	color: white;
+	margin-left: 3%;
+	text-shadow: 4px -1px 4px #000000;
+}
+
+#tableParams { 
+	background-color: #576067;
+	box-shadow: 9px 3px 9px 2px #474e54; 
+	margin-left: 3%;	
+}
+
+#approved_date {
+	width: 50%;
+}
+
+.productPage {
+	margin-bottom: 10%;
+}

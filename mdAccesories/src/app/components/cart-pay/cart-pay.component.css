@@ -1,0 +1,278 @@
+.cartPayPage {
+	margin-bottom: 10%;
+}
+
+#container {
+	height: 80vh; 
+	background-color: #576067;
+	box-shadow: 9px 3px 9px 2px #474e54; 
+    overflow-y: auto;
+    margin: auto;
+    margin-top: 3%;
+}
+
+.imgList {
+	width: 15%;
+	object-fit: cover;
+}
+
+.nameListDiv {
+    margin-left: 7%;
+    width: 100%;
+}
+
+.categoryNameList {
+	margin-top: 10%;
+}
+
+.price {
+    margin-top: 16%;
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.deleteCrossAll {
+    margin-left: auto;
+}
+
+.deleteCrossOne {
+    margin-top: 26%;
+}
+
+.deleteIcon {
+    color: #888a8e;
+}
+
+.deleteIcon:hover {
+    color: #dc3545;
+    cursor: pointer;
+}
+
+.name {
+    margin-top: 7%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.amountList {
+    margin-top: 6%;
+    color: #888a8e;
+    font-size: 91%;
+    font-weight: bold;
+}
+
+.totalDiv {
+    margin-left: 6%;
+    margin-top: 2%;
+}
+
+.totalText {
+    font-size: 24px;
+    margin-left: 65%;
+    margin-top: 3%;
+}
+
+.totalPrice {
+    font-size: 33px;
+    font-weight: 400;
+}
+
+.payDiv {
+    margin-left: 65%;
+    width: 25%;
+    margin-top: 1%;
+}
+
+.payButton {
+    width: 87%;
+    background-color: #5f84ce;
+    border-color: #5f84ce;
+}
+
+.payButton:hover {
+    background-color: #466198;
+}
+
+.iconWithoutx {
+    display: none;
+}
+
+@media  (min-width: 2100px) { 
+    .totalText {
+        margin-left: 67%;
+    }
+}
+
+@media  (min-width: 1460px) { 
+	.imgList {
+		width: 12%;
+    }
+
+    .deleteCrossOne {
+        width: 47%;
+    }
+    
+    .name {
+        font-size: 32px;
+    }
+
+    .categoryNameList {
+        font-size: 15px;
+    }
+
+    .amountList {
+        font-size: 21px;
+    }
+
+    .price {
+        font-size: 42px;
+    }
+
+    .totalText {
+        font-size: 30px;
+    }
+
+    .totalPrice {
+        font-size: 42px;
+    }
+
+    .payDiv {
+        width: 24%;
+        margin-top: 2%;
+    }
+}
+
+@media (max-width: 991.98px) { 
+    .iconWithx {
+        display: none;
+    }
+
+    .iconWithoutx {
+        display: block;
+    }
+
+    .price {
+        font-size: 26px;
+    }
+
+    .totalPrice {
+        font-size: 26px;
+    }
+
+    .totalText {
+        font-size: 20px;
+    }
+
+    .amountList {
+        font-size: 90%;
+    }
+
+    .name {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 767.98px) { 
+	.imgList {
+		width: 22%;
+    }
+    
+    .deleteCrossOne {
+        margin-top: 38%;
+    }
+
+    .totalText {
+        margin-left: 64%;
+    }
+
+    .name {
+        font-size: 17px;
+    }
+
+    .payDiv {
+        margin-left: 63%;
+        width: 29%;
+    }
+}
+
+@media (max-width: 714.98px) {
+    .payDiv {
+        margin-left: 64%;
+        width: 33%;
+    }
+}
+
+@media (max-width: 575.98px) { 
+	.list-group {
+		padding-right: 0;
+	}
+
+	 .nameList {
+		font-size: 17px;
+	}
+    
+    .imgList {
+        width: 20%;
+    }
+
+    .price {
+        font-size: 14px;
+    }
+
+    .totalPrice {
+        font-size: 21px;
+    }
+
+    .totalText {
+        margin-left: 59%;
+        font-size: 20px;
+    }
+
+    .amountList {
+        font-size: 68%;
+    }
+
+    .deleteCrossOne {
+        margin-top: -4%;
+    }
+
+    .categoryNameList {
+        font-size: 56%;
+    }
+
+    .payDiv {
+        margin-left: 51%;
+        width: 43%;
+    }
+}
+
+@media screen and (max-width: 490px) { 
+    .payDiv {
+       margin-left: 54%; 
+    }
+}
+
+@media screen and (max-width: 460px) { 
+    .payDiv {
+       margin-left: 57%; 
+    }
+}
+
+@media screen and (max-width: 430px) { 
+    .deleteCrossOne {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 396px) { 
+	.nameList {
+		font-size: 14px;
+    }
+
+    .price {
+        font-size: 14px;
+        margin-top: 46%;
+    }
+}
+
+

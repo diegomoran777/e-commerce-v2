@@ -1,0 +1,61 @@
+<app-nav></app-nav>
+
+<!--Begin row list group-->
+<div class="row cartPayPage">
+    <div class="col-md-11" id="container">
+        <ul class="col-sm-12 col-md-12 col-lg-12 col-xl-12 list-group mt-3">
+            <li *ngIf="cantPay()" class="list-group-item d-flex flex-row bd-highlight">
+                <p>No hay productos en el carrito</p>
+            </li>
+            <li class="list-group-item d-flex flex-row bd-highlight" *ngFor="let product of products">
+                <img class="imgList" 
+                     [src]="isUknownProduct(product.photo)" 
+                     alt="Card image cap">
+                <div class="align-items-start nameListDiv">
+                    <p class="nameList font-italic name">{{product.name}}</p>
+                    <button class="btn btn-danger btn-sm deleteCrossOne" 
+                            placement="top" 
+                            ngbTooltip="Eliminar un producto"
+                            (click)="deleteOneProductFromCart(product.id)">
+                            Eliminar
+                    </button>
+                </div>
+                <div class="align-items-start nameListDiv">
+                    <span class="badge badge-primary categoryNameList">{{product.categoryName}}</span>
+                    <p class="font-italic amountList">Cantidad: {{product.amount}}</p>
+                </div>
+                <div class="align-items-start nameListDiv">
+                    <p class="price">${{product.price}}</p>
+                </div>           
+                <div class="align-items-start deleteCrossAll">
+                    <a class="deleteCross" 
+                       placement="top" 
+                       ngbTooltip="Eliminar todos" 
+                       (click)="deleteAllProductsByPIdFromCart(product.id)">
+                        <i class="far fa-times-circle fa-2x deleteIcon iconWithx"></i>
+                        <i class="far fa-times-circle deleteIcon iconWithoutx"></i>
+                    </a>
+                </div>
+            </li>
+            <li class="list-group-item d-flex flex-row bd-highlight">
+                <span class="font-italic totalText">Total</span>
+                <div class="align-items-start totalDiv">
+                    <span class="totalPrice">${{total}}</span>
+                </div> 
+            </li>            
+            <li class="list-group-item d-flex flex-row bd-highlight">
+                <div class="d-flex flex-column payDiv">
+                    <button [disabled]="cantPay()" 
+                            (click)="goMp()"
+                            class="btn btn-info btn-sm d-flex justify-content-center payButton" >
+                            Pagar
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--List group ends-->
+
+<app-show-purchases></app-show-purchases>
+<app-footer></app-footer>

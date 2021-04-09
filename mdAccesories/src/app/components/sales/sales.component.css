@@ -1,0 +1,219 @@
+label {
+	color: #c1c1c1;
+	margin-bottom: auto;
+}
+
+.bg-dark {
+	box-shadow: 0 1px 9px 5px rgba(0,0,0,0.3);
+}
+
+#rwd-table th {
+	text-align: center;
+}
+
+#rwd-table tr {
+	text-align: center;
+}
+
+#spinnersContent {
+	height: 62vh;
+}
+
+.spinnersSubContent {
+	position: absolute;
+    top: 58%;
+	left: 34%;
+	margin-left: 6%;
+    margin-right: 6%;
+}
+
+.loadText {
+	position: absolute;
+    top: 64%;
+    left: 36%;
+    margin-left: 6%;
+}
+
+#bId {
+	border-radius: 5px 14px 1px 1px ;
+}
+
+#allSales {
+	border-radius: 5px 14px 1px 1px ;
+}
+
+#SalesPerYear {
+	margin-left: 3%;
+	border-radius: 5px 14px 1px 1px ;
+}
+
+#table {
+	height: 80vh; 
+	background-color: #576067;
+	box-shadow: 9px 3px 9px 2px #474e54; 
+	overflow-y: auto;
+	margin-left: 3%;
+}
+
+.title {
+	font-weight: bold;
+	font-size: 187%;
+	color: white;
+	margin-left: 3%;
+	text-shadow: 4px -1px 4px #000000;
+}
+
+#tableParams { 
+	background-color: #576067;
+	box-shadow: 9px 3px 9px 2px #474e54; 
+	margin-left: 3%;	
+}
+
+#userName {
+	width: 50%;
+}
+
+#userMail {
+	width: 50%;
+}
+
+#date {
+	width: 50%;
+}
+
+#delivered {
+	width: 50%;
+}
+
+.salePage {
+	margin-bottom: 10%;
+}
+
+.userPanel {
+	margin-left: 3%;
+}
+
+#tdUserName {
+	border: none;
+}
+
+#tdEmail {
+	border: none;
+}
+
+#tdDate {
+	border: none;
+}
+
+#tdDelivered {
+	border: none; 
+}
+
+.btn-success {
+	background-color: #a6ec81;
+	border-color: #a6ec81;
+}
+
+.btn-success:hover {
+	background-color: #80b763;
+	border-color: #80b763;
+}
+
+.btn-warning {
+	background-color: #f9d158;
+	border-color: #f9d158;
+}
+
+.btn-warning:hover {
+	background-color: #dabb5d;
+	border-color: #dabb5d;
+}
+
+.mail {
+	text-decoration: none;
+	color: rgba(220, 205, 157, 0.986); 
+}
+
+.mail:hover {
+	color: rgba(252, 231, 169, 0.986);
+}
+
+@media (max-width: 1200px) {
+	#userName {
+		width: 70%;
+	}
+	
+	#userMail {
+		width: 70%;
+	}
+	
+	#date {
+		width: 70%;
+	}
+	
+	#delivered {
+		width: 71%;
+	}
+}
+
+@media screen and (max-width: 396px) { 
+	.loadText {
+		left: 32%;
+	}
+
+	.spinnersSubContent {
+		left: 30%;
+	}
+}
+
+@media (max-width: 991.98px) { 
+	#delivered {
+		width: 71%;
+	}
+}
+
+@media (max-width: 767.98px) { 
+	#userName {
+		width: 86%;
+	}
+	
+	#userMail {
+		width: 86%;
+	}
+	
+	#date {
+		width: 86%;
+	}
+	
+	#delivered {
+		width: 86%;
+	}	
+}
+
+@media (max-width: 575.98px) { 
+	#tdUserName {
+		border: none;
+	}
+	
+	#tdEmail {
+		border: none;
+	}
+
+	#tdDate {
+		border: none;
+	}
+
+	#tdDelivered {
+		border: none; 
+	}
+
+	.price {
+		font-size: 21px;
+	}
+}
+
+@media (min-height: 1000px) {
+	.loadText {
+		top: 61%;
+	}
+}

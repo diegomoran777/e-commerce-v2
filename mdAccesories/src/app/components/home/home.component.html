@@ -1,0 +1,36 @@
+<app-nav></app-nav>
+<app-carrousel-alternative></app-carrousel-alternative>
+
+  <!--Begin row list cards-->
+<div class="row home">
+    <div class="col-8 col-sm-5 col-md-5 col-lg-5 col-xl-4 card bg-dark text-white sell" id="cards">
+        <img class="card-img-top" src="https://pbs.twimg.com/media/EauQE1jWAAIXxpW.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title font-italic">Ventas</h5>
+            <a class="btn btn-primary mr-1" 
+            routerLink = "/categories" 
+            [queryParams]="{categoryType: SALES}">
+               Ingresar
+            </a>
+        </div>
+    </div>
+
+    <div class="col-8 col-sm-5 col-md-5 col-lg-5 col-xl-4 card bg-dark text-white" id="cards">
+        <img class="card-img-top" src="https://talentosbrasil.com.br/uploads/cursos/fotografia.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title font-italic">Imagenes</h5>    
+            <a class="btn btn-primary mr-1" 
+            routerLink = "/categories" 
+            [queryParams]="{categoryType: IMAGES}">
+               Ingresar
+            </a>
+        </div>
+    </div>
+</div>
+<!--List cards ends-->
+
+<app-show-sales></app-show-sales> 
+<app-show-purchases></app-show-purchases>
+<app-show-cart-amount></app-show-cart-amount>
+
+<app-footer></app-footer>

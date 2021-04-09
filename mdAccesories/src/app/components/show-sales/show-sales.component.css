@@ -1,0 +1,57 @@
+.sales {
+    z-index: 1;
+    width: 100%;
+    cursor: pointer;
+}
+
+.salesContainer {
+    z-index: 1;
+    left: 1%;
+    right: -93%;
+    top: 87%;
+    width: 7%;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+@media screen and (min-width: 1200px) { 
+    .salesContainer {
+        width: 4%;
+    }
+}
+
+@media (max-width: 991.98px) { 
+    .salesContainer {
+        left: 2%;
+        top: 86%;
+        width: 9%;
+    }
+
+    .sales {
+        width: 81%;
+    }
+}
+
+@media (max-width: 767.98px) { 
+    .salesContainer {
+        left: 1%;
+        width: 7%;
+    }
+
+    .sales {
+        width: 109%;
+    }
+}
+
+@media (max-width: 575.98px) { 
+    .salesContainer {
+        left: 2%;
+        width: 9%
+    }
+
+    .sales {
+        width: 122%;
+    }
+}

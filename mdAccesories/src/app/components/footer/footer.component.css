@@ -1,0 +1,57 @@
+.icon {
+    text-decoration: none;
+    color: white;
+}
+
+.icon:hover {
+    color: #e2d880e0;
+}
+
+.lineColor {
+    background-color: #7c4dff !important;
+    /* background-color: #e40233 !important; */
+    width: 60px;
+}
+
+.contactFooter {
+    padding: 0;
+}
+
+.headerFooter {
+    background-color: #6351ce;
+    /* background-color: #e40233; */
+}
+
+.wp:hover {
+    color: #00e676;
+}
+
+.inst:hover {
+    color: #e079fa;
+}
+
+.face:hover {
+    color: #25b6e7;
+}
+
+.skype:hover {
+    color: #01aeea;
+}
+
+.mail:hover {
+    color: #3eaff0;
+}
+
+.footerBottom {
+    background-color: #0e1219;
+}
+
+footer {
+    background-color: #161c27;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+

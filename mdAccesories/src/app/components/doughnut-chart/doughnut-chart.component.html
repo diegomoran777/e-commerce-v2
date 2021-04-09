@@ -1,0 +1,25 @@
+<app-nav></app-nav>
+<div class="row">
+  <div class="container">
+    <app-nav-charts></app-nav-charts>
+    <select class="custom-select custom-select-sm" 
+            name="years" 
+            (change)="getYear($event)">
+            <option [selected]="year === currentYear" 
+                    [value]="year" 
+                    *ngFor="let year of years">
+                    {{year}}
+            </option>
+    </select>
+    <canvas baseChart 
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType"
+            [options]="chartOptions"
+            [colors]="doughnutChartColors">
+    </canvas>
+  </div>
+</div>
+
+<app-show-sales></app-show-sales>
+<app-footer></app-footer>

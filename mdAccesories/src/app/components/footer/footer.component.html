@@ -1,0 +1,111 @@
+<!-- Footer -->
+<footer class="row text-white">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 headerFooter">
+    <div class="container">
+      <!-- Grid row-->
+      <div class="row py-4 d-flex align-items-center">
+        <!-- Grid column -->
+        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+          <h6 class="mb-0">Contactenos en nuestras redes sociales!</h6>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-6 col-lg-7 text-center text-md-right">
+          <!-- Whathsapp -->
+          <a class="icon mr-4 wp" href="https://wa.me/5491137926770">
+              <i class="fab fa-whatsapp"></i>
+          </a>
+          <!-- Mail -->
+          <a class="icon mr-4 mail" href="mailto:mdaccesorios16@gmail.com">
+              <i class="fas fa-at"></i>
+          </a>
+          <!-- Instagram -->
+          <a class="icon mr-4 inst" href="https://www.instagram.com/md_.accessories/?hl=es">
+              <i class="fab fa-instagram"></i>
+          </a>
+          <!-- Facebook -->
+          <a class="icon mr-4 face" href="https://www.facebook.com/MD.accessorios">
+            <i class="fab fa-facebook"></i>
+        </a>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row-->
+    </div>
+  </div>
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left mt-5">
+    <!-- Grid row -->
+    <div class="row mt-3">
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <!-- Content -->
+        <h5 class="text-uppercase font-italic font-weight-bold"><i class="fab fa-medium-m"></i>D Accessories</h5>
+        <hr class="mb-4 mt-0 d-inline-block mx-auto lineColor">
+        <p>
+          Háganos su consulta, solicite su presupuesto, estamos para asesorarlo.
+        </p>
+      </div>
+      <!-- Grid column -->
+      
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Products</h6>
+        <hr class="mb-4 mt-0 d-inline-block mx-auto lineColor">
+        <p>
+          <a>Accesorios para facilitar tus viajes</a>
+        </p>
+      </div>
+      <!-- Grid column -->
+      
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+        <hr class="mb-4 mt-0 d-inline-block mx-auto lineColor">
+        <p>
+          <a [routerLink]="['/']">Home</a>
+        </p>
+        <p>
+          <a routerLink = "/images" 
+             [queryParams]="{categoryId: 1 , imagesById: true}">Imagenes</a>
+        </p>
+        <p *ngIf= "activateRole">
+          <a [routerLink]="['/login-form']">User</a>
+        </p>
+        <p *ngIf= "activateRole">
+          <a [routerLink]="['/']">Salir</a>
+        </p>
+      </div>
+      <!-- Grid column -->
+            
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 contactFooter">
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+        <hr class="mb-4 mt-0 d-inline-block mx-auto lineColor">
+        <p>
+          <i class="fas fa-phone-volume mr-2"></i> 11-37926770
+        </p>
+        <p>
+          <i class="fas fa-envelope mr-2"></i> mdaccesorios16@gmail.com
+        </p>
+        <p>
+          <i class="fab fa-instagram mr-2"></i> md_.accessories
+        </p>
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+  </div>
+  <!-- Footer Links -->
+  
+  <!-- Copyright -->
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 footer-copyright text-center py-3 footerBottom">© 2020 Copyright:
+    <a href="https://www.mdaccessories.com.ar"> .com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

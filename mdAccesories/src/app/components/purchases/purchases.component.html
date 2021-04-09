@@ -1,0 +1,85 @@
+<app-nav></app-nav>
+
+<!--Begin title-->
+<div class="row">
+    <div class="col-md-12 d-flex justify-content-start">
+        <strong class="title">Compras</strong>
+    </div>	
+</div>
+<!--Ends title-->
+
+<!--Begin row-->
+<div class="row">
+    <div class="col-md-11" id="tableParams">
+        <!--Begin panel search--> 
+        <table class="table table-sm table-dark m-auto">
+            <tbody>
+                <tr class="row m-auto">
+                    <td class="col-sm-4">
+                        <label for="date_approved">Fecha: año-mes-dia</label>
+                        <input (keyup)="getPurchasesByDate($event)" 
+                               type="text" 
+                               class="form-control form-control-sm" 
+                               id="approved_date" 
+                               name="date_approved">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--Ends panel search-->
+    </div>	
+</div>
+<!--Ends row-->
+
+
+<!--Begin row-->
+<div class="row productPage">
+    <div class="col-md-11" id="table">
+        <!--Begin table products-->
+        <table class="table table-sm table-striped table-dark" id="rwd-table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Detalle</th>
+                    <th scope="col">Cuotas</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Medio de pago</th>
+                    <th scope="col">Tarjeta</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="isEmptyPurchases()">
+                    <td class="font-weight-bold" colspan="8">Aun no has realizado compras</td>
+                </tr>
+                <tr *ngFor="let purchase of purchases">
+                    <td class="font-weight-bold">{{purchase.id}}</td>
+                    <td class="font-italic">
+                        <a class="btn btn-sm btn-info" 
+                           ngbPopover= {{purchase.purchase_detail}}> 
+                           Detalle
+                        </a>
+                    </td>
+                    <td>{{purchase.installments}}</td>
+                    <td>{{purchase.status}}</td>
+                    <td>{{purchase.payment_type_id}}</td>
+                    <td>{{purchase.payment_method_id}}</td>
+                    <td class="font-weight-bold">${{purchase.total}}</td>
+                    <td>
+                        <a class="btn btn-sm btn-info" 
+                           ngbPopover= {{purchase.date_approved}}> 
+                           Date
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--Ends table products-->
+    </div>
+</div>
+<!--Ends row-->
+
+<app-show-cart-amount></app-show-cart-amount>
+
+<app-footer></app-footer>

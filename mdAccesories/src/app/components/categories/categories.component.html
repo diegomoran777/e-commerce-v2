@@ -1,0 +1,222 @@
+<app-nav></app-nav>
+<app-carrousel></app-carrousel>
+<!--Begin title-->
+<div class="row mt-3">
+    <div class="col-md-12 d-flex justify-content-start">
+        <strong class="title">Categorias</strong>
+    </div>	
+</div>
+<!--Ends title-->
+
+<!--Panel button-->
+<div class="row">
+    <!--Button add suplier-->
+    <div class="col-md-12 d-flex justify-content-start">
+        <button *ngIf="activateRole === 'ADMIN'"
+                id="addp" 
+                type="button" 
+                class="btn btn-dark border border-secondary btn-sm mt-2" 
+                routerLink = "/category-form" 
+                [queryParams]="{categoryId: ''}">
+                Agregar categoria
+        </button>
+
+        <!-- Button search for id -->
+        <button *ngIf="activateRole === 'ADMIN'"
+                id="bId" 
+                type="button" 
+                class="btn btn-dark border border-secondary btn-sm mt-2" 
+                data-toggle="modal" 
+                data-target="#formId">
+                Buscar  por id
+        </button>
+
+        <button id="bId" 
+                type="button"
+                [ngClass]="{userPanel: isUser()}" 
+                class="btn btn-dark border border-secondary btn-sm mt-2" 
+                (click)="getCategories(type)">
+                Todas las Categorias
+        </button>
+
+        <button *ngIf="activateRole === 'ADMIN'"
+                id="bId" 
+                type="button" 
+                class="btn btn-dark border border-secondary btn-sm mt-2"
+                (click)="changeView()">
+                Vista admin
+        </button>
+
+        <!--Modal form-->
+        <div class="modal fade bg" id="formId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div [hidden]="showForm" class="modal-content bg-dark text-white">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Buscar categporia por id</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="text-white" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form #categoryForm = "ngForm" (ngSubmit)="getCategoryById(categoryForm)">
+                            <div class="form-group">
+                                <label for="categoryId">Id de la categoria</label>
+                                <input ngModel type="number" class="form-control form-control-sm" id="categoryId" name="categoryId">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm mr-2">Buscar</button>
+                            <button #closeModal type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+                        </form>
+                    </div>
+                </div>
+                <!--Spinners loading begin-->
+                <div *ngIf="showSpinners" class="align-self-center" role="status" id="spinnersContent">
+                    <div class="spinnersSubContent">
+                        <span class="spinner-grow text-primary float-left"></span>
+                        <span class="spinner-grow text-warning float-left"></span>
+                        <span class="spinner-grow text-danger"></span>
+                    </div>
+                    <div *ngIf="showSpinners" class="loadText">
+                        <span class="d-flex justify-content-center text-white">Searching...</span>
+                    </div>
+                </div>
+                <!--Spinners loading ends-->
+            </div>
+        </div>
+        <!--Ends modal form-->
+    </div>
+    <!--Ends col-->
+</div>
+<!--Ends row-->
+
+<!--Begin row-->
+<!--Begin panel search-->
+<div class="row">
+    <div class="col-md-11" id="tableParams">
+        <table class="table table-sm table-dark m-auto">
+            <tbody>
+                <tr class="row m-auto">
+                    <td class="col-sm-5" id="categoryN">
+                        <label for="categoryName">Nombre de la categoria</label>
+                        <input (keyup)="getCategoryByName($event)" type="text" class="form-control form-control-sm" id="categoryName" name="categoryName">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>	
+</div>
+<!--Ends panel search-->
+<!--Ends row-->
+
+
+<!--Begin row-->
+<!--Begin table category-->
+<div *ngIf="listView" class="row categoriesPage">
+    <div class="col-md-11" id="table">
+        <table class="table table-sm table-striped table-dark" id="rwd-table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Modificar</th>
+                    <th scope="col">Eliminar</th>
+                    <th scope="col">Agregar Item</th>
+                    <th scope="col">Items</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let category of categories">
+                    <td class="font-weight-bold">{{category.id}}</td>
+                    <td>{{category.name}}</td>
+                    <td>
+                        <a class="btn btn-sm btn-info" 
+                           ngbPopover= {{category.description}}
+                           popoverTitle="Descripcion" 
+                           popoverClass="popoverC"> 
+                           Ver descripcion
+                        </a>
+                    </td>
+                    <td>
+                        <a class="photo" [href]="category.photo">
+                            <i class="fas fa-images"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-warning text-dark" 
+                           routerLink = "/category-form" 
+                           [queryParams]="{categoryId: category.id}">
+                           <i class="fas fa-highlighter"></i> 
+                           Modificar
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-danger" 
+                           (click)= "areYouSure(category.id, category.type)">
+                           <i class="far fa-trash-alt"></i> 
+                           Eliminar
+                        </a>
+                    </td>
+                    <td>
+                        <a *ngIf="isType(category.type)" class="btn btn-sm btn-primary text-white" 
+                           routerLink = "/product-form" 
+                           [queryParams]="{categoryId: category.id, productId: ''}">
+                           <i class="fas fa-angle-double-down"></i> 
+                           Add productos
+                        </a>
+                        <a *ngIf="!isType(category.type)" class="btn btn-sm btn-primary text-white" 
+                           routerLink = "/image-form" 
+                           [queryParams]="{categoryId: category.id, imageId: ''}">
+                           <i class="fas fa-angle-double-down"></i> 
+                           Add imagen
+                        </a>
+                    </td>
+                    <td>
+                        <a *ngIf="isType(category.type)" class="btn btn-sm btn-primary text-white" 
+                           routerLink = "/products" 
+                           [queryParams]="{categoryId: category.id , productsById: true}">
+                           <i class="fas fa-list"></i> 
+                           Productos
+                        </a>
+                        <a *ngIf="!isType(category.type)" class="btn btn-sm btn-primary text-white" 
+                           routerLink = "/images" 
+                           [queryParams]="{categoryId: category.id , imagesById: true}">
+                           <i class="fas fa-list"></i> 
+                           Imagenes
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--Ends table suplier-->
+<!--Ends row-->
+
+
+<!--Begin row list cards-->
+ <div *ngIf="!listView" class="row categoriesPage">
+    <div [ngClass]="{bigEntrance: enter}" class="col-11 col-sm-5 col-md-5 col-lg-3 col-xl-3 card bg-dark text-white" id="cards" *ngFor="let category of categories">
+        <img class="card-img-top" [src]="category.photo" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title font-italic">{{category.name}}</h5>    
+            <a *ngIf="isType(category.type)" class="btn btn-sm btn-info text-white" 
+                routerLink = "/products" 
+                [queryParams]="{categoryId: category.id , productsById: true}"> 
+                Ver productos
+                </a>
+            <a *ngIf="!isType(category.type)" class="btn btn-sm btn-info text-white" 
+                routerLink = "/images" 
+                [queryParams]="{categoryId: category.id , imagesById: true}"> 
+                Ver imagenes
+            </a>
+        </div>
+    </div>
+<!--List cards ends-->
+</div>
+
+<app-show-sales></app-show-sales>
+<app-show-purchases></app-show-purchases>
+<app-show-cart-amount></app-show-cart-amount>
+
+<app-footer></app-footer>

@@ -1,0 +1,48 @@
+<div *ngIf="activateRole !== null" class="btn-group dropup fixed-bottom cartContainer">
+    <a  #open
+        (mouseover)="openList()"
+        (mouseout)="openList()"  
+        class="dropdown-toggle img" 
+        data-toggle="dropdown" 
+        aria-haspopup="true" 
+        aria-expanded="false">
+        <img src="./../../../assets/images/cart3.png" class="cart">
+    <span class="badge badge-danger text-white amountBadge">{{amountItems}}</span>
+        
+        <div class="dropdown-menu" >  
+            <div class="dropdown-item d-flex flex-row bd-highlight"
+                 *ngFor="let product of products"
+                 routerLink="/products" 
+                 [queryParams]="{categoryId: product.categoryId , productsById: true}">
+                <img class="imgList" 
+                     [src]="isUknownProduct(product.photo)" 
+                     alt="Card image cap">
+                <div class="align-items-start listDiv">
+                    <strong class="font-italic">{{product.name}}</strong>
+                    <p class="font-italic amountList">Cantidad: {{product.amount}}</p>
+                </div>
+                <div class="align-items-start priceList">
+                    <p class="price">$ {{product.price}}</p>
+                </div>
+            </div>
+            <hr>
+
+            <div class="dropdown-item d-flex flex-row bd-highlight">
+                <span class="font-italic">Subtotal</span>
+                <div class="align-items-start subtotal">
+                    <strong>$ {{subtotal}}</strong>
+                </div>
+            </div>
+            <div class="d-flex flex-column">
+                <button routerLink="/cart-pay"
+                        class="btn btn-info btn-sm d-flex justify-content-center sendToCart" >
+                        Ir al carrito
+                </button>
+            </div>
+        </div>
+        
+    </a>
+</div>
+
+
+

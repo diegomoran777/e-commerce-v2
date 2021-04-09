@@ -1,0 +1,83 @@
+<app-nav></app-nav>
+<!--Begin row form-->
+<div class="row mt-3">
+    <div class="col-md-12">
+        <div *ngIf="showSpinner" class="sk-circle">
+            <div class="sk-circle1 sk-child"></div>
+            <div class="sk-circle2 sk-child"></div>
+            <div class="sk-circle3 sk-child"></div>
+            <div class="sk-circle4 sk-child"></div>
+            <div class="sk-circle5 sk-child"></div>
+            <div class="sk-circle6 sk-child"></div>
+            <div class="sk-circle7 sk-child"></div>
+            <div class="sk-circle8 sk-child"></div>
+            <div class="sk-circle9 sk-child"></div>
+            <div class="sk-circle10 sk-child"></div>
+            <div class="sk-circle11 sk-child"></div>
+            <div class="sk-circle12 sk-child"></div>
+          </div>
+        <!--Begin container-->
+        <div *ngIf="showForm" class="wrapForm rounded">
+            <div class="titleContainer">
+                <span>Categoria</span>
+            </div>
+            <!--Begin form for add and update-->
+            <form #categoryForm = "ngForm" (ngSubmit)="updateAddCategory(categoryForm)">
+                <div class="form-group">
+                    <input [(ngModel)]="category.id" 
+                           *ngIf ="!isEmptyId()" 
+                           class="form-control" 
+                           type="text" 
+                           name="categoryId" 
+                           disabled>
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="category.name"
+                           [class.is-invalid]="name.invalid && name.touched"
+                           required
+                           #name="ngModel" 
+                           class="form-control" 
+                           type="text" 
+                           name="name" 
+                           placeholder="Nombre de categoria">
+                    <small class="text-warning" 
+                           *ngIf="name.invalid && name.touched">
+                           Nombre requerido
+                    </small>
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="category.description" 
+                           class="form-control" 
+                           type="text" 
+                           name="description" 
+                           placeholder="Descripcion">
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="category.photo"
+                           class="form-control" 
+                           type="text" 
+                           name="photo" 
+                           placeholder="Foto">
+                </div>
+                <div class="form-group">
+                    <select class="custom-select custom-select-sm form-control"
+                            [(ngModel)]="category.type"  
+                            name="type"
+                            [disabled]="!isEmptyId()">
+                            <option value="Venta">Venta</option>
+                            <option value="Imagenes">Imagen</option>
+                    </select>
+                </div>
+                <button class="btn buttonSubmit" type="submit">Enviar</button>
+            </form>
+            <!--Ends form-->
+        <!--Ends container-->
+    </div>
+</div>
+<!--Ends row form-->
+
+<app-show-sales></app-show-sales>
+<app-show-purchases></app-show-purchases>
+<app-show-cart-amount></app-show-cart-amount>
+
+<app-footer></app-footer>

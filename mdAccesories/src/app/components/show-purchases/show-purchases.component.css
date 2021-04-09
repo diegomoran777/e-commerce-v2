@@ -1,0 +1,57 @@
+.purchases {
+    z-index: 1;
+    width: 100%;
+    cursor: pointer;
+}
+
+.purchasesContainer {
+    z-index: 1;
+    left: 1%;
+    right: -93%;
+    top: 87%;
+    width: 7%;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+@media screen and (min-width: 1200px) { 
+    .purchasesContainer {
+        width: 4%;
+    }
+}
+
+@media (max-width: 991.98px) { 
+    .purchasesContainer {
+        left: 2%;
+        top: 86%;
+        width: 9%;
+    }
+
+    .purchases {
+        width: 81%;
+    }
+}
+
+@media (max-width: 767.98px) { 
+    .purchasesContainer {
+        left: 1%;
+        width: 7%;
+    }
+
+    .purchases {
+        width: 109%;
+    }
+}
+
+@media (max-width: 575.98px) { 
+    .purchasesContainer {
+        left: 2%;
+        width: 9%
+    }
+
+    .purchases {
+        width: 122%;
+    }
+}

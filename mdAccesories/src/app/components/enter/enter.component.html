@@ -1,0 +1,53 @@
+<app-nav></app-nav>
+<app-carrousel></app-carrousel>
+
+<!--Begin row list cards-->
+<div class="row productPage">
+    <div class="list-group-item d-flex flex-row bd-highlight bg-dark noInfo" *ngIf="products.length === 0">
+        <strong class="text-white font-italic">Aun no hay productos</strong>
+    </div>
+    <div [ngClass]="{bigEntrance: enter}" class="col-8 col-sm-5 col-md-3 col-lg-3 col-xl-2 card bg-dark text-white" id="cards"  *ngFor="let product of products">
+
+        <!-- carrousel begins-->
+        <div [id]="'carousel'+product.id" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item" *ngFor="let photo of filterEmpty(product.photos) let i = index" [ngClass]="{'active': i == 0}">
+                <img [src]="photo.name" class="card-img-top" alt="...">
+              </div>
+            </div>
+            <a class="carousel-control-prev" [href]="'#carousel'+product.id" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" [href]="'#carousel'+product.id" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- carrousel ends-->
+
+        <div class="card-body">
+            <span class="badge badge-primary">{{product.categoryName}}</span>
+            <a class="moreInfo float-right" [href]="'mailto:mdaccesorios16@gmail.com?subject=' + product.name + ' id: ' + product.id" placement="bottom" ngbTooltip="Consultar producto">
+                <i class="far fa-envelope-open"></i>
+             </a>
+            <h5 class="card-title">${{product.price}}</h5>
+            <p class="card-text">{{product.name}}</p>
+            <a class="btn btn-sm btn-primary mr-1"
+               routerLink = "/login">
+               Add 
+               <i class="fas fa-cart-arrow-down"></i>
+            </a>
+            <a class="btn btn-sm btn-danger mr-1"
+               target="blank" 
+               [routerLink]="['/product-detail', product.id]" 
+               placement="top" 
+               ngbTooltip="Detalle del producto">
+               <i class="fas fa-angle-double-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<!--List cards ends-->
+
+<app-footer></app-footer>
