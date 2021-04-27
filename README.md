@@ -2,7 +2,7 @@
 E-commerce with administrator panel, registration, cancellation and modification of products and categories, dashboard with monthly sales for each year, integration with mercado pago api, product cart, record of purchases made by the customer, etc.
 
 Technologies:
-e-commerce made with Angular 8, java 11 spring boot, JPA, mysql, HTML5, CSS3, bootstrap4, Mercado pago api
+e-commerce made with Angular 8, ECS6, java 11 spring boot, API REST, JPA, MySql, HTML5, CSS3, Bootstrap4, Mercado pago api, Swagger
 
 
 Starting 🚀
