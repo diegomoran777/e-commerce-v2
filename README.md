@@ -93,3 +93,8 @@ Example:
 
 ![chart-torta](https://user-images.githubusercontent.com/32073494/114244325-9b869580-9964-11eb-9db9-803ff6fbf398.JPG)
 
+![image](https://user-images.githubusercontent.com/32073494/116240243-fcbab100-a739-11eb-853d-8779f14dc7a3.png)
+
+![image](https://user-images.githubusercontent.com/32073494/116240351-1956e900-a73a-11eb-9dc8-936f71a91c5b.png)
+
+
